@@ -1,9 +1,13 @@
 {
   "name": "이길현",
+  "nameLatin": "Gilhyeon Lee",
+  "house": "The Resting Wyvern",
   "affiliation": "고려대학교 인공지능학과",
-  "tagline": "사람을 연결하는 일과 AI, 양쪽 모두에 관심이 있습니다.",
+  "affiliationLatin": "KOREA UNIV. · ARTIFICIAL INTELLIGENCE",
+  "affiliationLatinFull": "KOREA UNIVERSITY · DEPT. OF ARTIFICIAL INTELLIGENCE",
+  "tagline": "밤늦게까지 불이 켜진 자리에 앉아, 배운 것을 하나씩 꺼내 만듭니다",
   "about": [
-    "고려대학교 인공지능학과에서 공부하고 있습니다.",
-    "출신 고등학교를 기반으로 사람들을 잇는 커뮤니티 '동문'을 만들었고, NYPC와 LG Aimers에 참여하며 문제를 푸는 쪽으로도 손을 뻗고 있습니다."
+    "인공지능학과에서 모델을 다루는 법을 배우고 있습니다. 논문과 대회에서 익힌 것을 실제로 누군가 쓰는 형태로 옮기는 데 관심이 많습니다.",
+    "지금은 커뮤니티 서비스와 머신러닝 과제를 나란히 붙잡고 있고, 만든 것을 남기는 쪽을 좋아합니다."
   ]
 }

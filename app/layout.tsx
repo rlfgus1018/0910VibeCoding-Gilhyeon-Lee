@@ -1,20 +1,39 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Noto_Sans_KR } from "next/font/google";
+import {
+  Cinzel,
+  Gowun_Batang,
+  IM_Fell_English,
+  Nanum_Myeongjo,
+} from "next/font/google";
 import "./globals.css";
 
-const notoSansKr = Noto_Sans_KR({
-  variable: "--font-noto-sans-kr",
+const gowunBatang = Gowun_Batang({
+  variable: "--font-gowun-batang",
   subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
 });
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const nanumMyeongjo = Nanum_Myeongjo({
+  variable: "--font-nanum-myeongjo",
   subsets: ["latin"],
+  weight: ["400", "700", "800"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const cinzel = Cinzel({
+  variable: "--font-cinzel",
   subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  display: "swap",
+});
+
+const imFellEnglish = IM_Fell_English({
+  variable: "--font-im-fell-english",
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -26,12 +45,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="ko"
-      className={`${notoSansKr.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${gowunBatang.variable} ${nanumMyeongjo.variable} ${cinzel.variable} ${imFellEnglish.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">
-        <div aria-hidden="true" className="cyber-grid" />
-        <div aria-hidden="true" className="cyber-glow" />
-        <div aria-hidden="true" className="cyber-scanlines" />
+      <body className="flex min-h-full flex-col overflow-x-hidden">
+        <div aria-hidden="true" className="tavern-hearth" />
+        <div aria-hidden="true" className="tavern-weave" />
+        <div aria-hidden="true" className="tavern-vignette" />
         {children}
       </body>
     </html>

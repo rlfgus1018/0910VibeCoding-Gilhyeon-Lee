@@ -1,30 +1,32 @@
-import type { Link } from "@/types/content";
+import type { LinkSection } from "@/types/content";
 import SectionLabel from "./SectionLabel";
 
-export default function Links({ links }: { links: Link[] }) {
+export default function Links({
+  links,
+  title,
+}: {
+  links: LinkSection;
+  title: string;
+}) {
   return (
     <section>
-      <SectionLabel>Links</SectionLabel>
-      <ul className="flex flex-wrap gap-3">
-        {links.map((link) => (
-          <li key={link.label}>
-            <a
-              href={link.url}
-              target="_blank"
-              rel="noreferrer"
-              className="group inline-flex items-center gap-2 border border-rule px-4 py-2 font-mono text-sm text-muted transition-colors hover:border-neon hover:text-neon hover:shadow-[0_0_20px_-6px_var(--neon)]"
-            >
-              <span aria-hidden="true" className="text-faint group-hover:text-neon-alt">
-                [
-              </span>
-              {link.label}
-              <span aria-hidden="true" className="text-faint group-hover:text-neon-alt">
-                ]
-              </span>
-            </a>
-          </li>
+      <SectionLabel>{title}</SectionLabel>
+      <div className="flex flex-wrap items-center gap-4">
+        {links.items.map((link) => (
+          <a
+            key={link.label}
+            href={link.url}
+            target="_blank"
+            rel="noreferrer"
+            className="bg-gradient-to-b from-gold-bright to-gold px-7 py-3.5 font-display text-xs font-semibold uppercase tracking-[0.24em] text-ink transition hover:brightness-110 hover:shadow-[0_0_28px_rgba(232,181,99,0.35)]"
+          >
+            {link.label}
+          </a>
         ))}
-      </ul>
+        {links.note ? (
+          <p className="text-xs leading-[1.7] text-faint">{links.note}</p>
+        ) : null}
+      </div>
     </section>
   );
 }

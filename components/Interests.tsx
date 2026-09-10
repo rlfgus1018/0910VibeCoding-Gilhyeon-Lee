@@ -1,22 +1,25 @@
 import type { Interest } from "@/types/content";
 import SectionLabel from "./SectionLabel";
 
-export default function Interests({ interests }: { interests: Interest[] }) {
+export default function Interests({
+  interests,
+  title,
+}: {
+  interests: Interest[];
+  title: string;
+}) {
   return (
     <section>
-      <SectionLabel>Interests</SectionLabel>
-      <ul className="flex flex-wrap gap-3">
+      <SectionLabel>{title}</SectionLabel>
+      <ul className="flex flex-wrap gap-2.5">
         {interests.map((interest) => (
           <li
             key={interest.label}
-            className="flex items-baseline gap-2 border border-rule bg-surface px-4 py-2 transition-colors hover:border-neon-alt"
+            className="inline-flex items-baseline gap-2 whitespace-nowrap rounded-full border border-gold/[0.28] bg-foreground/[0.06] px-[18px] py-2.5 font-serif text-[15px] text-foreground transition-colors hover:border-gold-bright"
           >
-            <span aria-hidden="true" className="font-mono text-xs text-neon-alt">
-              ▸
-            </span>
-            <span className="text-sm">{interest.label}</span>
+            {interest.label}
             {interest.note ? (
-              <span className="font-mono text-xs text-faint">
+              <span className="font-sans text-[11px] text-subtle">
                 {interest.note}
               </span>
             ) : null}

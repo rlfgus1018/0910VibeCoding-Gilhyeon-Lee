@@ -1,24 +1,41 @@
 import type { Project } from "@/types/content";
 import SectionLabel from "./SectionLabel";
 
-export default function Projects({ projects }: { projects: Project[] }) {
+const NUMERALS = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
+
+export default function Projects({
+  projects,
+  title,
+}: {
+  projects: Project[];
+  title: string;
+}) {
   return (
     <section>
-      <SectionLabel>Projects</SectionLabel>
-      <ul className="flex flex-col gap-4">
-        {projects.map((project) => (
-          <li
+      <SectionLabel>{title}</SectionLabel>
+      <div className="grid gap-3">
+        {projects.map((project, index) => (
+          <article
             key={project.name}
-            className="group border-l-2 border-rule py-1 pl-5 transition-colors hover:border-neon hover:bg-neon/5"
+            className="flex items-center gap-[18px] border border-gold/20 bg-gradient-to-r from-gold/[0.09] to-transparent px-5 py-[18px] transition-colors hover:border-gold-bright/85 hover:from-gold/[0.18] hover:to-gold/[0.02]"
           >
-            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <h3 className="font-mono text-sm tracking-wide transition-colors group-hover:text-neon">
+            <div
+              aria-hidden="true"
+              className="flex size-8 flex-none rotate-45 items-center justify-center border border-gold"
+            >
+              <span className="-rotate-45 font-display text-xs font-semibold text-gold-bright">
+                {NUMERALS[index] ?? index + 1}
+              </span>
+            </div>
+
+            <div className="min-w-0 flex-1">
+              <h3 className="font-serif text-lg font-bold leading-[1.3] text-foreground">
                 {project.url ? (
                   <a
                     href={project.url}
                     target="_blank"
                     rel="noreferrer"
-                    className="underline decoration-rule underline-offset-4 transition-colors hover:decoration-neon"
+                    className="underline decoration-gold/40 underline-offset-4 transition-colors hover:decoration-gold-bright"
                   >
                     {project.name}
                   </a>
@@ -26,18 +43,17 @@ export default function Projects({ projects }: { projects: Project[] }) {
                   project.name
                 )}
               </h3>
-              {project.period ? (
-                <span className="font-mono text-xs text-faint">
-                  {project.period}
-                </span>
-              ) : null}
+              <p className="mt-1 text-sm leading-[1.7] text-subtle">
+                {project.description}
+              </p>
             </div>
-            <p className="mt-2 text-sm leading-relaxed text-muted">
-              {project.description}
-            </p>
-          </li>
+
+            <span className="flex-none font-display text-[10px] leading-none tracking-[0.18em] text-fainter">
+              {project.period ?? "—"}
+            </span>
+          </article>
         ))}
-      </ul>
+      </div>
     </section>
   );
 }

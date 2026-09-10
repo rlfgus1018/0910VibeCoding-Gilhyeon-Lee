@@ -1,6 +1,9 @@
-[
-  {
-    "label": "GitHub",
-    "url": "https://github.com/USERNAME"
-  }
-]
+{
+  "items": [
+    {
+      "label": "GitHub",
+      "url": "https://github.com/USERNAME"
+    }
+  ],
+  "note": "문 옆에 걸린 등불처럼, 지금은 하나뿐"
+}
