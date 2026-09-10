@@ -52,11 +52,24 @@ types/content.ts  # JSON에 대응하는 타입 정의
 
 ## 스타일
 
-다크 미니멀 고정. 라이트 모드는 대응하지 않는다.
+사이버펑크 톤의 다크 고정. 라이트 모드는 대응하지 않는다.
 
 색은 `globals.css` 의 CSS 변수로만 정의하고 Tailwind 유틸리티로 소비한다:
-`bg-background` `text-foreground` `text-muted` `text-faint` `decoration-rule`.
-새 색을 하드코딩하지 말고 토큰을 추가해서 쓴다.
+`bg-background` `bg-surface` `text-foreground` `text-muted` `text-faint`
+`text-neon`(시안) `text-neon-alt`(마젠타) `border-rule`.
+새 색을 하드코딩하지 말고 토큰을 추가해서 쓴다. 네온은 강조에만 쓰고 본문에는 쓰지 않는다.
+
+폰트는 두 갈래로 쓴다. 본문은 `font-sans`(Noto Sans KR), 라벨·메타·링크처럼
+기계적으로 보여야 하는 곳은 `font-mono`(Geist Mono).
+
+`globals.css` 하단의 연출용 클래스:
+
+- `.cyber-grid` `.cyber-glow` `.cyber-scanlines` — `layout.tsx` 의 고정 배경 레이어. 셋 다 `aria-hidden`
+- `.glitch` — 글리치 타이틀. 의사 요소가 `attr(data-text)` 를 읽으므로 **같은 텍스트를 `data-text` 로도 넘겨야** 한다
+- `.cursor` — 뒤에 깜빡이는 커서를 붙인다
+- `.neon-glow` — 네온 텍스트 글로우
+
+애니메이션을 추가하면 `prefers-reduced-motion: reduce` 블록에도 반드시 같이 넣는다.
 
 레이아웃은 `max-w-2xl` 한 칼럼 중앙 정렬.
 
